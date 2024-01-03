@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	gomodvendor "github.com/paketo-buildpacks/go-mod-vendor"
+	gomodvendor "github.com/initializ-buildpacks/go-mod-vendor"
 	"github.com/paketo-buildpacks/go-mod-vendor/fakes"
 	"github.com/paketo-buildpacks/packit/v2"
 	"github.com/sclevine/spec"

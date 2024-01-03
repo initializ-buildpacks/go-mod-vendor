@@ -1,4 +1,4 @@
-module github.com/paketo-buildpacks/go-mod-vendor
+module github.com/initializ-buildpacks/go-mod-vendor
 
 go 1.18
 
