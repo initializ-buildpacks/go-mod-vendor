@@ -10,7 +10,7 @@ import (
 	"time"
 
 	gomodvendor "github.com/initializ-buildpacks/go-mod-vendor"
-	"github.com/paketo-buildpacks/go-mod-vendor/fakes"
+	"github.com/initializ-buildpacks/go-mod-vendor/fakes"
 	"github.com/paketo-buildpacks/packit/v2/chronos"
 	"github.com/paketo-buildpacks/packit/v2/pexec"
 	"github.com/paketo-buildpacks/packit/v2/scribe"
