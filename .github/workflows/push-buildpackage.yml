@@ -3,18 +3,13 @@ name: Push Buildpackage
 on:
   release:
     types:
-    - published
-
-permissions:
-  id-token: write # This is required for aws oidc connection
-  contents: read # This is required for actions/checkout
+      - published
 
 jobs:
   push:
     name: Push
     runs-on: ubuntu-22.04
     steps:
-
       - name: Parse Event
         id: event
         run: |
@@ -24,7 +19,7 @@ jobs:
           echo "tag_full=${FULL_VERSION}" >> "$GITHUB_OUTPUT"
           echo "tag_minor=${MINOR_VERSION}" >> "$GITHUB_OUTPUT"
           echo "tag_major=${MAJOR_VERSION}" >> "$GITHUB_OUTPUT"
-          echo "download_url=$(jq -r '.release.assets[] | select(.name | endswith(".cnb")) | .url' "${GITHUB_EVENT_PATH}")" >> "$GITHUB_OUTPUT"
+          echo "download_url=$(jq -r '.release.assets[] | select(.name | endswith(\".cnb\")) | .url' "${GITHUB_EVENT_PATH}")" >> "$GITHUB_OUTPUT"
 
       - name: Download
         id: download
@@ -32,7 +27,7 @@ jobs:
         with:
           url: ${{ steps.event.outputs.download_url }}
           output: "/github/workspace/buildpackage.cnb"
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT}}
 
       - name: Validate version
         run: |
@@ -66,7 +61,7 @@ jobs:
           id: ${{ github.repository }}
           version: ${{ steps.event.outputs.tag_full }}
           address: ${{ steps.push.outputs.image }}@${{ steps.push.outputs.digest }}
-          token: ${{ secrets.PAT }} 
+          token: ${{ secrets.PAT}}
 
   failure:
     name: Alert on Failure
@@ -85,4 +80,4 @@ jobs:
           issue_body: |
             Push Buildpackage workflow [failed](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}).
           comment_body: |
-            Another failure occurred: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+             Another failure occurred: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
