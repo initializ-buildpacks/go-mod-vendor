@@ -27,7 +27,7 @@ jobs:
         with:
           url: ${{ steps.event.outputs.download_url }}
           output: "/github/workspace/buildpackage.cnb"
-          token: ${{ secrets.PAT}}
+          token: ${{ secrets.PAT }}
 
       - name: Validate version
         run: |
