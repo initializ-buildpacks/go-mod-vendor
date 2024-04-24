@@ -41,6 +41,7 @@ jobs:
         run: |
           mkdir -p $HOME/.gnupg
           chmod 700 $HOME/.gnupg
+          export GNUPGHOME=$HOME/.gnupg
 
       - name: Commit
         id: commit
