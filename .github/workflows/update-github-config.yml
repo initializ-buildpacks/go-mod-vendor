@@ -42,9 +42,6 @@ jobs:
           sudo mkdir -p /github/home/.gnupg
           sudo chown -R ${{ runner.user }}:${{ runner.group }} /github/home/.gnupg
           chmod 700 /github/home/.gnupg
-          chmod 600 /github/home/.gnupg/pubring.kbx
-          chmod 600 /github/home/.gnupg/secring.kbx
-          chmod 644 /github/home/.gnupg/trustdb.gpg
 
       - name: Commit
         id: commit
