@@ -19,7 +19,7 @@ jobs:
           echo "tag_full=${FULL_VERSION}" >> "$GITHUB_OUTPUT"
           echo "tag_minor=${MINOR_VERSION}" >> "$GITHUB_OUTPUT"
           echo "tag_major=${MAJOR_VERSION}" >> "$GITHUB_OUTPUT"
-          echo "download_url=$(jq -r '.release.assets[] | select(.name | endswith(\".cnb\")) | .url' "${GITHUB_EVENT_PATH}")" >> "$GITHUB_OUTPUT"
+          echo "download_url=$(jq -r '.release.assets[] | select(.name | endswith(".cnb")) | .url' "${GITHUB_EVENT_PATH}")" >> "$GITHUB_OUTPUT"
 
       - name: Download
         id: download
