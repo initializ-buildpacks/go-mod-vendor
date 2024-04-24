@@ -46,6 +46,7 @@ jobs:
         pathspec: "."
         keyid: ${{ secrets.initializ_BOT_GPG_SIGNING_KEY_ID }}
         key: ${{ secrets.initializ_BOT_GPG_SIGNING_KEY }}
+        verbose: true
 
     - name: Push Branch
       if: ${{ steps.commit.outputs.commit_sha != '' }}
