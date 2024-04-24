@@ -39,8 +39,8 @@ jobs:
 
       - name: Set GPG permissions
         run: |
-          mkdir -p /github/home/.gnupg
-          cp /github/home/.gnupg/* /github/home/.gnupg/.
+          sudo mkdir -p /github/home/.gnupg
+          sudo chown -R ${{ runner.user }}:${{ runner.group }} /github/home/.gnupg
           chmod 700 /github/home/.gnupg
           chmod 600 /github/home/.gnupg/pubring.kbx
           chmod 600 /github/home/.gnupg/secring.kbx
