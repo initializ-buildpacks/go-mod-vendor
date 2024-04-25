@@ -33,7 +33,7 @@ jobs:
       uses: initializ-buildpacks/github-config/actions/sync@main
       with:
         workspace: /github/workspace
-        config: /github/workspace/github-config/implementation
+        config: /github/workspace/github-config/language-family
 
     - name: Cleanup
       run: rm -rf github-config
