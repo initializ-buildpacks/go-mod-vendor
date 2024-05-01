@@ -212,7 +212,7 @@ function util::tools::create-package::install () {
 
     if [[ ! -f "${dir}/create-package" ]]; then
       util::print::title "Installing create-package"
-      GOBIN="${dir}" go install -ldflags="-s -w" "github.com/paketo-buildpacks/libpak/cmd/create-package@${version}"
+      GOBIN="${dir}" go install -ldflags="-s -w" "github.com/initializ-buildpacks/libpak/cmd/create-package@${version}"
     fi
 }
 
