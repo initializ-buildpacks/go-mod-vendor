@@ -96,8 +96,8 @@ func testModVendor(t *testing.T, context spec.G, it spec.S) {
 	context("Execute", func() {
 		it.Before(func() {
 			executable.ExecuteCall.Stub = func(execution pexec.Execution) error {
-				fmt.Fprintln(execution.Stdout, "stdout-output")
-				fmt.Fprintln(execution.Stderr, "stderr-output")
+				_, _ = fmt.Fprintln(execution.Stdout, "stdout-output")
+				_, _ = fmt.Fprintln(execution.Stderr, "stderr-output")
 				return nil
 			}
 		})
@@ -119,8 +119,8 @@ func testModVendor(t *testing.T, context spec.G, it spec.S) {
 			context("the executable fails", func() {
 				it.Before(func() {
 					executable.ExecuteCall.Stub = func(execution pexec.Execution) error {
-						fmt.Fprintln(execution.Stdout, "build error stdout")
-						fmt.Fprintln(execution.Stderr, "build error stderr")
+						_, _ = fmt.Fprintln(execution.Stdout, "build error stdout")
+						_, _ = fmt.Fprintln(execution.Stderr, "build error stderr")
 
 						return errors.New("executable failed")
 					}
